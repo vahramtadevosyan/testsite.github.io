@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+\documentclass[10pt]{article}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage[utf8]{inputenc} %useful to type directly diacritic characters
+\begin{document}
+\begin{align*}<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -139,19 +145,14 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <image id="teaser" autoplay muted loop playsinline height="100%">
-        <!-- <source src="./static/images/interpolate_end.jpg" type="image/jpg"> -->
-        <object data="./static/images/teaser_final.png" type="image/jpg" style="width:100%;height:600px;"> </object>
-        <!-- <object data="./static/images/teaser_final.pdf" type="application/pdf" style="width:100%;height:600px;"> </object> -->
-      </image>
+      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/teaser_final.png" style="width:100%;height:600px;">
       <h2 class="subtitle has-text-centered">
-        Using <span class="dnerf">Text2Video-Zero</span>, videos can be generated from a textual prompt (row 1 and 2). Results are temporally consistent,  follow closely the text guidance and can be combined with additional guidance such as poses or edges (lower right images). 
+        Using <span class="dnerf">Text2Video-Zero</span>, videos can be generated from a textual prompt (row 1 and 2). Results are temporally consistent,  follow closely the text guidance and can be combined with additional guidance such as poses or edges (lower right images).
     Our method further enables Video Instruct-Pix2Pix, \ie, instruction-guided video editing (lower left images)
       </h2>
     </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -270,3 +271,5 @@
 
 </body>
 </html>
+\end{align*}
+\end{document}
