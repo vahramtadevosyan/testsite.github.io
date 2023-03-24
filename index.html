@@ -10,6 +10,8 @@
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -190,38 +192,54 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <ul>
-          <li><a href="https://ommer-lab.com/research/latent-diffusion-models/"> High-Resolution Image Synthesis with Latent Diffusion Models (a.k.a. LDM & Stable Diffusion)</a></li>
-          <li><a href="https://tuneavideo.github.io/"> Tune-A-Video: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation</a></li>
-          <li><a href="https://www.timothybrooks.com/instruct-pix2pix/"> InstructPix2Pix: Learning to Follow Image Editing Instructions</a></li>
-          <li><a href="https://github.com/lllyasviel/ControlNet"> Adding Conditional Control to Text-to-Image Diffusion Models (a.k.a ControlNet)</a></li>
-        </ul>
-        <!-- <div class="content has-text-justified">
+<section class="section" id="Method">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Method</h2>
+    <section class="hero method">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/method.png" style="width:100%;height:100%;">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            Method overview: Starting from a randomly sampled latent code <span class="math inline">\(x_{T}^{1}\)</span>, we apply <span class="math inline">\(\Delta t\)</span> DDIM backward steps to obtain <span class="math inline">\(x_{T'}^{1}\)</span> using a pre-trained Stable Diffusion model (SD). A specified motion field results for each frame <span class="math inline">\(k\)</span> in a warping function <span class="math inline">\(W_k\)</span> that turns <span class="math inline">\(x_{T'}^{1}\)</span> to <span class="math inline">\(x_{T'}^{k}\)</span>. By enhancing the latent codes with motion dynamics, we determine the global scene and camera motion and achieve temporal consistency in the background and the global scene.
+            A subsequent DDPM forward application delivers latent codes <span class="math inline">\(x_{T}^{k}\)</span> for <span class="math inline">\(k=1,\ldots,m\)</span>. By using the (probabilistic) DDPM method, a greater degree of freedom is achieved with respect to the motion of objects.
+            Finally, the latent codes are passed to our modified SD model using the proposed cross-frame attention, which uses keys and values from the first frame to generate the image of frame <span class="math inline">\(k=1,\ldots,m\)</span>. By using cross-frame attention,  the appearance and the identity of the foreground object are preserved  throughout the sequence. 
+            Optionally, we apply background smoothing. To this end, we employ salient object detection to obtain for each frame <span class="math inline">\(k\) a mask <span class="math inline">\(M^{k}\)</span> indicating the foreground pixels. Finally, for the background (using the mask <span class="math inline">\(M^{k}\)</span>), a convex combination between the latent code <span class="math inline">\(x_{t}^{1}\)</span> of frame one warped to frame <span class="math inline">\(k\)</span> and the latent code <span class="math inline">\(x_{t}^{k}\)</span> is used to further improve the temporal consistency of the background.
           </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div> -->
+        </div>
       </div>
-    </div>
+    </section>
+  </div>
+</section>
+
+
+<section class="section" id='RelatedLinks'>
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Related Links</h2>
+
+    <ul>
+      <li><a href="https://ommer-lab.com/research/latent-diffusion-models/"> High-Resolution Image Synthesis with Latent Diffusion Models (a.k.a. LDM & Stable Diffusion)</a></li>
+      <li><a href="https://tuneavideo.github.io/"> Tune-A-Video: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation</a></li>
+      <li><a href="https://www.timothybrooks.com/instruct-pix2pix/"> InstructPix2Pix: Learning to Follow Image Editing Instructions</a></li>
+      <li><a href="https://github.com/lllyasviel/ControlNet"> Adding Conditional Control to Text-to-Image Diffusion Models (a.k.a ControlNet)</a></li>
+    </ul>
+    <!-- <div class="content has-text-justified">
+      <p>
+        There's a lot of excellent work that was introduced around the same time as ours.
+      </p>
+      <p>
+        <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+      </p>
+      <p>
+        <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+        both use deformation fields to model non-rigid scenes.
+      </p>
+      <p>
+        Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+      </p>
+      <p>
+        There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+      </p>
+    </div> -->
   </div>
 </section>
 
@@ -234,8 +252,8 @@
     title={Text2Video-Zero: Text-to-Image Diffusion Models are Zero-Shot Video Generators},
     author={Khachatryan, Levon and Movsisyan, Andranik and Tadevosyan, Vahram and Henschel, Roberto and Wang, Zhangyang and Navasardyan, Shant and Shi, Humphrey},
     journal={arXiv preprint arXiv:2303.13439},
-    year={2023}
-}</code></pre>
+    year={2023}}
+    </code></pre>
   </div>
 </section>
 
