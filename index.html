@@ -36,6 +36,27 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.png">
 
+  <style>  
+    table {  
+      font-family: arial, sans-serif;  
+      border-collapse: collapse;  
+      width: 100%;  
+    }  
+      
+    td, th {  
+      border: 2px solid #F1F4F5;  
+      text-align: left;  
+      padding: 8px;  
+    }  
+    tr:nth-child(3n - 1) {  
+      background-color: #F1F4F5;  
+    }  
+
+    tr:nth-child(3n) {  
+      border: 2px solid #FFFFFF;
+    }  
+  </style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -62,13 +83,13 @@
               <a href="">Roberto Henschel</a><sup>1*</sup>,</span>
             </span><br>
             <span class="author-block">
-              <a href="">Zhangyang Wang</a><sup>1,2</sup>,
+              <a href="https://www.ece.utexas.edu/people/faculty/atlas-wang">Zhangyang Wang</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
               <a href="">Shant Navasardyan</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="">Humphrey Shi</a><sup>1,3,4</sup>
+              <a href="https://www.humphreyshi.com">Humphrey Shi</a><sup>1,3,4</sup>
             </span>
           </div>
 
@@ -212,9 +233,162 @@
 </section>
 
 
+<section class="section" id="Results">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Results</h2>
+    <h3 class="title">Text-to-Video</h3>
+    <table class="center">
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/t2v/cat_running.gif" raw=true></td>
+        <td><img src="__assets__/github/results/t2v/playing.gif"></td>
+        <td><img src="__assets__/github/results/t2v/running.gif"></td>              
+        <td><img src="__assets__/github/results/t2v/skii.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A cat is running on the grass"</td>
+        <td width=25% style="text-align:center;">"A panda is playing guitar on times square</td>
+        <td width=25% style="text-align:center;">"A man is running in the snow"</td>
+        <td width=25% style="text-align:center;">"An astronaut is skiing down the hill"</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/t2v/panda_surfing.gif" raw=true></td>
+        <td><img src="__assets__/github/results/t2v/bear_dancing.gif"></td>
+        <td><img src="__assets__/github/results/t2v/bicycle.gif"></td>              
+        <td><img src="__assets__/github/results/t2v/horse_galloping.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A panda surfing on a wakeboard"</td>
+        <td width=25% style="text-align:center;">"A bear dancing on times square</td>
+        <td width=25% style="text-align:center;">"A man is riding a bicycle in the sunshine"</td>
+        <td width=25% style="text-align:center;">"A horse galloping on a street"</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/t2v/tiger_walking.gif" raw=true></td>
+        <td><img src="__assets__/github/results/t2v/panda_surfing_2.gif"></td>
+        <td><img src="__assets__/github/results/t2v/horse_galloping_2.gif"></td>              
+        <td><img src="__assets__/github/results/t2v/cat_walking.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A tiger walking alone down the street"</td>
+        <td width=25% style="text-align:center;">"A panda surfing on a wakeboard</td>
+        <td width=25% style="text-align:center;">"A horse galloping on a street"</td>
+        <td width=25% style="text-align:center;">"A cute cat running in a beatiful meadow"</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/t2v/horse_galloping_3.gif" raw=true></td>
+        <td><img src="__assets__/github/results/t2v/panda_walking.gif"></td>
+        <td><img src="__assets__/github/results/t2v/dog_walking.gif"></td>              
+        <td><img src="__assets__/github/results/t2v/astronaut.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A horse galloping on a street"</td>
+        <td width=25% style="text-align:center;">"A panda walking alone down the street</td>
+        <td width=25% style="text-align:center;">"A dog is walking down the street"</td>
+        <td width=25% style="text-align:center;">"An astronaut is waving his hands on the moon"</td>
+      </tr>
+    </table>
+    <br>
+    <h3 class="title">Text-To-Video with Pose Guidance</h3>
+    <table class="center">
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/pose2v/img_bot_left.gif" raw=true><img src="__assets__/github/results/pose2v/pose_bot_left.gif"></td>
+        <td><img src="__assets__/github/results/pose2v/img_bot_right.gif" raw=true><img src="__assets__/github/results/pose2v/pose_bot_right.gif"></td>
+        <td><img src="__assets__/github/results/pose2v/img_top_left.gif" raw=true><img src="__assets__/github/results/pose2v/pose_top_left.gif"></td>
+        <td><img src="__assets__/github/results/pose2v/img_top_right.gif" raw=true><img src="__assets__/github/results/pose2v/pose_top_right.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A bear dancing on the concrete"</td>
+        <td width=25% style="text-align:center;">"An alien dancing under a flying saucer</td>
+        <td width=25% style="text-align:center;">"A panda dancing in Antarctica"</td>
+        <td width=25% style="text-align:center;">"An astronaut dancing in the outer space"</td>
+      </tr>
+    </table>
+    <br>
+    <h3 class="title">Text-To-Video with Edge Guidance</h3>
+    <table class="center">
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/edge2v/butterfly.gif" raw=true><img src="__assets__/github/results/edge2v/butterfly_edge.gif"></td>
+        <td><img src="__assets__/github/results/edge2v/head.gif" raw=true><img src="__assets__/github/results/edge2v/head_edge.gif"></td>
+        <td><img src="__assets__/github/results/edge2v/jelly.gif" raw=true><img src="__assets__/github/results/edge2v/jelly_edge.gif"></td>
+        <td><img src="__assets__/github/results/edge2v/mask.gif" raw=true><img src="__assets__/github/results/edge2v/mask_edge.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"White butterfly"</td>
+        <td width=25% style="text-align:center;">"Beautiful girl"</td>
+          <td width=25% style="text-align:center;">"A jellyfish"</td>
+        <td width=25% style="text-align:center;">"beautiful girl halloween style"</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/edge2v/fox.gif" raw=true><img src="__assets__/github/results/edge2v/fix_edge.gif"></td>
+        <td><img src="__assets__/github/results/edge2v/head_2.gif" raw=true><img src="__assets__/github/results/edge2v/head_2_edge.gif"></td>
+        <td><img src="__assets__/github/results/edge2v/santa.gif" raw=true><img src="__assets__/github/results/edge2v/santa_edge.gif"></td>
+        <td><img src="__assets__/github/results/edge2v/dear.gif" raw=true><img src="__assets__/github/results/edge2v/dear_edge.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"Wild fox is walking"</td>
+        <td width=25% style="text-align:center;">"Oil painting of a beautiful girl close-up"</td>
+          <td width=25% style="text-align:center;">"A santa claus"</td>
+        <td width=25% style="text-align:center;">"A deer"</td>
+      </tr>
+    </table>
+    <br>
+    <h3 class="title">Text-To-Video with Edge Guidance and Dreambooth specialization</h3>
+    <table class="center">
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/canny_db/anime_style.gif" raw=true><img src="__assets__/github/results/canny_db/anime_edge.gif"></td>
+        <td><img src="__assets__/github/results/canny_db/arcane_style.gif" raw=true><img src="__assets__/github/results/canny_db/arcane_edge.gif"></td>
+        <td><img src="__assets__/github/results/canny_db/gta-5_man_style.gif" raw=true><img src="__assets__/github/results/canny_db/gta-5_man_edge.gif"></td>
+        <td><img src="__assets__/github/results/canny_db/img_bot_right.gif" raw=true><img src="__assets__/github/results/canny_db/edge_bot_right.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"anime style"</td>
+        <td width=25% style="text-align:center;">"arcane style</td>
+        <td width=25% style="text-align:center;">"gta-5 man"</td>
+        <td width=25% style="text-align:center;">"avatar style"</td>
+      </tr>
+    </table>
+    <br>
+    <h3 class="title">Video Instruct Pix2Pix</h3>
+    <table class="center">
+      <tr><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/Video_InstructPix2Pix/frame_1/up_left.gif" raw=true><img src="__assets__/github/results/Video_InstructPix2Pix/frame_1/bot_left.gif"></td>
+        <td><img src="__assets__/github/results/Video_InstructPix2Pix/frame_1/up_mid.gif" raw=true><img src="__assets__/github/results/Video_InstructPix2Pix/frame_1/bot_mid.gif"></td>
+        <td><img src="__assets__/github/results/Video_InstructPix2Pix/frame_1/up_right.gif" raw=true><img src="__assets__/github/results/Video_InstructPix2Pix/frame_1/bot_right.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"Replace man with chimpanze"</td>
+        <td width=25% style="text-align:center;">"Make it Van Gogh Starry Night style"</td>
+          <td width=25% style="text-align:center;">"Make it Picasso style"</td>
+      </tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="__assets__/github/results/Video_InstructPix2Pix/frame_2/up_left.gif" raw=true><img src="__assets__/github/results/Video_InstructPix2Pix/frame_2/bot_left.gif"></td>
+        <td><img src="__assets__/github/results/Video_InstructPix2Pix/frame_2/up_mid.gif" raw=true><img src="__assets__/github/results/Video_InstructPix2Pix/frame_2/bot_mid.gif"></td>
+        <td><img src="__assets__/github/results/Video_InstructPix2Pix/frame_2/up_right.gif" raw=true><img src="__assets__/github/results/Video_InstructPix2Pix/frame_2/bot_right.gif"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"Make it Expressionism style"</td>
+        <td width=25% style="text-align:center;">"Make it night"</td>
+        <td width=25% style="text-align:center;">"Make it autumn"</td>
+      </tr>
+    </table>
+
+  </div>
+</section>
+
+
 <section class="section" id='RelatedLinks'>
   <div class="container is-max-desktop content">
-    <h2 class="title is-3">Related Links</h2>
+    <h2 class="title">Related Links</h2>
 
     <ul>
       <li><a href="https://ommer-lab.com/research/latent-diffusion-models/"> High-Resolution Image Synthesis with Latent Diffusion Models (a.k.a. LDM & Stable Diffusion)</a></li>
